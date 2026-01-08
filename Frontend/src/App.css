@@ -1,0 +1,23 @@
+:root{--bg:#071024;--text:#eaf3ff}
+html,body,#root{height:100%}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial;-webkit-font-smoothing:antialiased}
+/* page background is rendered by a fixed element to ensure it stays fixed across browsers */
+.page-bg{position:fixed;inset:0;z-index:-1;background-image:url('/background.png');background-size:cover;background-position:center center;background-attachment:fixed;filter:brightness(1) saturate(1);will-change:transform}
+.page-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(2,6,12,0.08),rgba(2,6,12,0.08))}
+#root{max-width:1200px;margin:0 auto;background:transparent}
+main{min-height:60vh;background:transparent}
+
+/* If you don't see the page background, place the provided image at Frontend/public/landing-bg.jpg */
+
+/* subtle fade in for in-view elements handled in section css */
+
+button{font-family:inherit}
+
+/* accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+}
+
+/* Utility */
+.muted{color:#9fb0c6}
