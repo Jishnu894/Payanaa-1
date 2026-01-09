@@ -1,7 +1,7 @@
 import React from 'react';
 import './hero.css';
 
-export default function Hero() {
+export default function Hero({ setActiveView }) {
   return (
     <section className="hero" id="home" aria-label="Payana hero">
       <div className="hero-inner">
@@ -10,7 +10,7 @@ export default function Hero() {
         </h1>
         <p className="tagline">Payana helps you plan trips, organize itineraries, and pack effortlessly — all in one place.</p>
         <div className="hero-cta">
-          <button className="primary-btn">Get Started</button>
+          <button className="primary-btn" onClick={() => setActiveView('signup')}>Get Started</button>
         </div>
       </div>
     </section>
