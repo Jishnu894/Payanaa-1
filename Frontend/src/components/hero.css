@@ -1,14 +1,14 @@
 :root{--bg:#071024;--text:#eaf3ff}
-.hero{min-height:66vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:3.8rem 1rem;background:transparent}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2.2rem 1rem;background:transparent}
 .hero-inner{max-width:880px}
 .brand{font-size:clamp(2.4rem,8vw,5rem);letter-spacing:0.08em;margin:0;font-weight:800;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
 .brand .pa{color:var(--accent);}
 .brand .ya{color:white}
 .brand .na{color:var(--accent2)}
 .tagline{margin-top:0.6rem;color:rgba(255,255,255,0.92);font-size:1.05rem;max-width:720px;margin-left:auto;margin-right:auto}
-.hero-cta{margin-top:2rem}
-.primary-btn{padding:0.9rem 1.6rem;border-radius:10px;border:none;background:linear-gradient(90deg,#FF6B6B,#FFD43B);color:#071024;font-weight:700;font-size:1rem;cursor:pointer;transition:transform .16s ease,box-shadow .16s ease}
-.primary-btn:hover{transform:scale(1.03);box-shadow:0 10px 30px rgba(0,0,0,0.32)}
+.hero-cta{margin-top:1rem}
+.primary-btn{padding:0.9rem 1.6rem;border-radius:10px;border:none;background:linear-gradient(90deg,#c5a712,#b85919);color:#100b0b;font-weight:700;font-size:1rem;cursor:pointer;transition:transform .16s ease,box-shadow .16s ease}
+.primary-btn:hover{transform:scale(1.03);box-shadow:0 10px 30px rgba(219, 4, 4, 0.953)}
 .primary-btn:active{transform:scale(0.98)}
 
 @media (max-width:720px){

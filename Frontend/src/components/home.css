@@ -1,0 +1,213 @@
+.home-layout {
+  /* Make home a full-screen fixed canvas so it fills the viewport regardless of parent constraints */
+  position: fixed;
+  inset: 0;
+  display: flex;
+  padding-left: 80px; /* leave room for the fixed sidebar */
+  overflow: hidden; /* prevent horizontal overflow */
+  z-index: 50;
+}
+
+.home-main {
+  flex: 1 1 auto;
+  position: relative;
+  width: calc(100% - 80px); /* occupy remaining width beside sidebar */
+  height: 100%; /* full height of the fixed layout */
+  overflow-y: auto; /* vertical scrolling only */
+  overflow-x: hidden;
+}
+
+/* subtle dark overlay to keep content readable while preserving the landing background image */
+.home-main::before{
+  content: '';
+  position: absolute;
+  inset: 0 0 0 0;
+  background: rgba(7,16,36,0.26);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Welcome Animation */
+.welcome-overlay {
+  position: fixed;
+  top: 0;
+  left: 80px;
+  right: 0;
+  bottom: 0;
+  background: rgba(7, 16, 36, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeInOverlay 0.4s ease-out;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.welcome-card {
+  text-align: center;
+  animation: welcomeSlideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes welcomeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.welcome-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(90deg, #FF6B6B, #FFD43B, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+}
+
+.welcome-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.8);
+  margin: 0 0 2rem 0;
+  font-weight: 500;
+}
+
+.welcome-animation {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #FF6B6B, #FFD43B);
+  border-radius: 2px;
+  margin: 0 auto;
+  animation: widthPulse 2s ease-in-out infinite;
+}
+
+@keyframes widthPulse {
+  0%, 100% {
+    width: 80px;
+    opacity: 0.6;
+  }
+  50% {
+    width: 120px;
+    opacity: 1;
+  }
+}
+
+/* Home Content */
+.home-content {
+  padding: 3rem 2rem;
+  animation: fadeInContent 0.8s ease-out 0.4s both;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.content-header {
+  margin-bottom: 3rem;
+}
+
+.content-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.content-header p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.dashboard-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.dashboard-card p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .home-main {
+    margin-left: 60px;
+  }
+
+  .home-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .content-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .dashboard-card {
+    padding: 1.5rem;
+  }
+
+  .welcome-title {
+    font-size: 2rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
+}
